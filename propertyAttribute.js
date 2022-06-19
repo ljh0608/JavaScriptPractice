@@ -122,22 +122,162 @@
 //   }
 
 
-const person ={name: 'lee'};
+// const person ={name: 'lee'};
 
-console.log(Object.isExtensible(person)); //true
+// console.log(Object.isExtensible(person)); //true
 
-Object.preventExtensions(person);
+// Object.preventExtensions(person);
+// console.log(Object.isExtensible(person)); //false
 
-console.log(Object.isExtensible(person)); //false
+// //프로퍼티 추가 불가  (프로퍼티 동적추가)
+// person.age=20; //무시 strict 모드에선 에러
+// console.log(person); //{ name: 'lee' }
+// console.log(person.name);
 
-//프로퍼티 추가 불가
-person.age=20; //무시 strict 모드에선 에러
-console.log(person); //{ name: 'lee' }
+// //프로퍼티 값 변경 가능
+// person.name="yun";
+// console.log(person.name);
 
-//프로퍼티 삭제 가능
-delete person.name;
-console.log(person); //{}
+// //프로퍼티 삭제 가능
+// delete person.name;
+// console.log(person); //{}
 
-// 프로퍼티 정의에 의한 추가도 금지
-Object.defineProperty(person, 'age',{value:20});
-//TypeError:
+
+
+// // 프로퍼티 정의에 의한 추가도 금지 (Object.defineProperty 메서드로 추가)
+//  Object.defineProperty(person, 'age',{value:20});
+// //TypeError: Cannot define property age, object is not extensible
+
+
+// const person = {name: 'lee'};
+
+// //person객체는 밀봉된 객체가 아니다
+// console.log(Object.isSealed(person)); //false
+// Object.seal(person); // 객체를 밀봉하여 프로퍼티 추가, 삭제, 재정의를 금지한다.
+// console.log(Object.isSealed(person)); //true
+
+
+// //밀봉된 객체는 configurable이 false이다.
+// console.log(Object.getOwnPropertyDescriptors(person));
+
+// // name: {
+// //     value: 'lee',
+// //     writable: true,
+// //     enumerable: true,
+// //     configurable: false
+// //   }
+
+// //프로퍼티 추가 금지
+// person.age=25; //무시. strict모드에서는 에러
+// console.log(person); //{ name: 'lee' }
+
+// //프로퍼티 삭제 금지
+// delete person.name; //무시. strict 모두에서는 에러
+// console.log(person); //{ name: 'lee' }
+
+// //프로퍼티 값 갱신 가능
+// person.name='kim';
+// console.log(person); //{ name: 'kim' }
+
+// //프로퍼티 어트리뷰트 재정의 금지
+// Object.defineProperty(person,'name', {configurable:true});
+// //TypeError: Cannot redefine property: name
+
+
+
+// const person= {name: 'lee'};
+
+// console.log(Object.isFrozen(person)); //false
+// Object.freeze(person); //객체 동결
+// console.log(Object.isFrozen(person)); //true
+
+
+
+// //동결된 객체는 writable과 configurable이 false이다.
+// console.log(Object.getOwnPropertyDescriptors(person));
+
+// // name: {
+// //     value: 'lee',
+// //     writable: false,
+// //     enumerable: true,
+// //     configurable: false
+// //   }
+
+
+// // 프로퍼티 추가 금지
+// person.age=20; //무시. strict mode에선 error
+// console.log(person); //{ name: 'lee' }
+
+
+// //프로퍼티 삭제 금지
+// delete person.name; //무시. strict mode에선 error
+// console.log(person); //{ name: 'lee' }
+
+
+// //프로퍼티 값 갱신 금지
+// person.name='yun'; //무시. strict mode에선 error
+// console.log(person); //{ name: 'lee' }
+
+
+// //프로퍼티 어트리뷰트 재정의 금지
+// Object.defineProperty(person,'name',{configurable:true});
+// //TypeError: Cannot redefine property: name
+
+
+//중첩객체는 얕은 변경방지로 막을 수 없다
+// const person={
+//     name: 'lee',
+//     address:{city:'Seoul'}
+// };
+
+
+// Object.freeze(person); //객체 동결
+// console.log(Object.isFrozen(person)); //true
+
+// person.name='yun'; //무시.
+
+// console.log(Object.isFrozen(person.address)); //false
+// person.address.city='Yeosu'; //변경 가능
+
+// console.log(person); //{ name: 'lee', address: { city: 'Yeosu' } }
+
+
+
+
+function deepFreeze(target){
+    //모든 프로퍼티를 순회하며 재귀적으로 동결한다.
+    if(target && typeof target ==='object' && !Object.isFrozen(target)){
+        Object.freeze(target);
+
+        Object.keys(target).forEach(key => deepFreeze(target[key]));
+    }
+    return target;
+}
+
+
+const person={
+    name:'LEE',
+    address:{city:'Goyang'}
+};
+
+
+deepFreeze(person);
+console.log(Object.isFrozen(person)); //true 객체 동결
+console.log(Object.isFrozen(person.address)); //true 중첩 객체 동결
+
+person.address='Busan'; //무시
+console.log(person); //{ name: 'LEE', address: { city: 'Goyang' } }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
