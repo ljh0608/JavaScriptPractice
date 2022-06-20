@@ -30,5 +30,5 @@ function bar(){
 
 }
 
-foo();
-bar();
+foo(); //1
+bar(); //1 
