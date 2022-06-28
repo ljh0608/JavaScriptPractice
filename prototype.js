@@ -144,7 +144,8 @@ for(const i in person){
 
 console.log(Object.keys(person)); //[ 'name', 'address' ]
 console.log(Object.values(person)); // [ 'LEE', 'Ilsan' ]
-console.log(Object.entries(person));
+console.log(Object.entries(person)); // [ [ 'name', 'LEE' ], [ 'address', 'Ilsan' ] ]
+
 
 
 
