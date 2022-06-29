@@ -72,13 +72,26 @@
 // console.log(getThisBinding.bind(thisArg)()); //{ a: 1}
 
 
-const person = {
-    name: 'LEE',
-    foo(callback){
-          setTimeout(callback.bind(this),1000);
-    }
-};
+// const person = {
+//     name: 'LEE',
+//     foo(callback){
+//           setTimeout(callback.bind(this),1000);
+//     }
+// };
 
-person.foo(function(){
-    console.log(`Hi my name is ${this.name}`);// Hi my name is LEE
-})
+// person.foo(function(){
+//     console.log(`Hi my name is ${this.name}`);// Hi my name is LEE
+// })
+
+
+let foo=1;
+{
+    //let으로 선언한 변수가 호이스팅되지 않는다면 값이 1인 foo를 참조해야한다.
+    //하지만 아래는 참조 에러가 발생하는 모습
+console.log(foo); //ReferenceError: Cannot access 'foo' before initialization
+    let foo=2;
+}
+
+
+
+
