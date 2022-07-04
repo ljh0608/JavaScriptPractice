@@ -127,22 +127,42 @@
 // console.log(derived instanceof Base2); // false
 
 
-class Base{
-    constructor(name){
-        this.name=name;
+// class Base{
+//     constructor(name){
+//         this.name=name;
+//     }
+//     sayHi(){
+//         return `Hi ${this.name}`;
+//     }
+// }
+
+// class Derived extends Base{
+
+//     sayHi(){
+//         return `${super.sayHi()}. how are you`;
+//     }
+// }
+
+// const derived=new Derived('lee');
+// console.log(derived.sayHi()); //Hi lee. how are you
+
+
+//표준 빌트인 생성자 함수 확장
+
+class MyArray extends Array{
+    // 중복된 배열 요소를 제거하고 반환
+    uniq(){
+        return this.filter((v,i,self)=> self.indexOf(v)===i);
     }
-    sayHi(){
-        return `Hi ${this.name}`;
-    }
+
+    // 모든 배열 요소의 평균을 구한다.
+    average(){
+        return this.reduce((pre,cur) => pre+cur,0)/ this.length;
+        }
 }
 
-class Derived extends Base{
+const myArray=new MyArray(1,1,2,3);
 
-    sayHi(){
-        return `${super.sayHi()}. how are you`;
-    }
-}
-
-const derived=new Derived('lee');
-console.log(derived.sayHi());
-
+console.log(myArray); //MyArray(4) [ 1, 1, 2, 3 ]
+console.log(myArray.uniq()); //MyArray(3) [ 1, 2, 3 ]
+console.log(myArray.average());
