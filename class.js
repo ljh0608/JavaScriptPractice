@@ -165,4 +165,4 @@ const myArray=new MyArray(1,1,2,3);
 
 console.log(myArray); //MyArray(4) [ 1, 1, 2, 3 ]
 console.log(myArray.uniq()); //MyArray(3) [ 1, 2, 3 ]
-console.log(myArray.average());
+console.log(myArray.average()); //1.75
