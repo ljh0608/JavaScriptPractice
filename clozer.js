@@ -72,5 +72,5 @@ for(var i=0;i<3;i++){
 }
 
 for(var j=0;j<funcs.length;j++){
-    console.log(funcs[j]());
+    console.log(funcs[j]()); // 3 3 3
 }
