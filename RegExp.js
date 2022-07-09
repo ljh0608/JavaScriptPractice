@@ -73,28 +73,63 @@
 // console.log(target.match(/is/ig)); //[ 'Is', 'is', 'is' ]
 
 
-const target='Is this all there is?';
-// 임의의 3자리 문자열을 대소문자 구별하여 전역 검색
-const regExp=/.../g;
+//임의의 문자열 검색
+// const target='Is this all there is?';
+// // 임의의 3자리 문자열을 대소문자 구별하여 전역 검색
+// const regExp=/.../g;
 
-console.log(target.match(regExp));
-// [
-//     'Is ', 'thi',
-//     's a', 'll ',
-//     'the', 're ',
-//     'is?'
-//   ]
-const regExp2= /../g;
-console.log(target.match(regExp2));
+// console.log(target.match(regExp));
+// // [
+// //     'Is ', 'thi',
+// //     's a', 'll ',
+// //     'the', 're ',
+// //     'is?'
+// //   ]
+// const regExp2= /../g;
+// console.log(target.match(regExp2));
 
-// [
-//     'Is', ' t', 'hi',
-//     's ', 'al', 'l ',
-//     'th', 'er', 'e ',
-//     'is'
-//   ]
+// // [
+// //     'Is', ' t', 'hi',
+// //     's ', 'al', 'l ',
+// //     'th', 'er', 'e ',
+// //     'is'
+// //   ]
+
+
+//31.5.3 @@@
+
+// const target ='A AA B BB Aa Bb AAA';
+
+// //A가 최소 한번 최대 두번 반복하는 문자열 전역 검색
+// const regExp=/A{1,2}/g;
+
+// console.log(target.match(regExp)); //[ 'A', 'AA', 'A', 'AA', 'A' ]
+
+
+// const target ='A AA B BB Aa Bb AAA';
+
+// //A가 두번 반복하는 문자열 전역 검색
+// const regExp=/A{2}/g;
+
+// console.log(target.match(regExp)); //[ 'AA', 'AA' ]
 
 
 
+// const target ='A AA B BB Aa Bb AAA';
+
+// //A가 최소 두번 이상 반복하는 문자열 전역 검색
+// const regExp=/A{2,}/g;
+
+// console.log(target.match(regExp)); //[ 'AA', 'AAA' ]
+
+
+
+
+const target ='A AA B BB Aa Bb AAA';
+
+//A가 최소 한번 이상 반복되는 문자열을 전역 검색
+const regExp=/A+/g;
+
+console.log(target.match(regExp)); //[ 'AA', 'AAA' ]
 
 
