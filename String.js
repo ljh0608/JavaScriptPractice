@@ -106,13 +106,15 @@
 // console.log(snakeToCamel(snakeCase)); //snakeCase
 
 
-const str ='How are you doing?';
+// const str ='How are you doing?';
 
-console.log(str.split(' ')); //[ 'How', 'are', 'you', 'doing?' ]
+// console.log(str.split(' ')); //[ 'How', 'are', 'you', 'doing?' ]
 
-//빈문자열 전달시 각 문자를 모두 분리
-console.log(str.split(''));
-//[ 'H', 'o', 'w', ' ', 'a',  'r', 'e',
-// ' ', 'y', 'o', 'u', ' ', 'd', 'o', 'i','n', 'g', '?']
+// //빈문자열 전달시 각 문자를 모두 분리
+// console.log(str.split(''));
+// //[ 'H', 'o', 'w', ' ', 'a',  'r', 'e',
+// // ' ', 'y', 'o', 'u', ' ', 'd', 'o', 'i','n', 'g', '?']
 
-console.log(str.split('a'));
+// console.log(str.split('a')); //[ 'How ', 're you doing?' ]
+
+
