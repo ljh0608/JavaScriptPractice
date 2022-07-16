@@ -111,11 +111,15 @@ const fibonacciFunc= function(){
         };
     };
 
+    //fibonacciFunc 함수는 무한 이터러블 생성
     for(const num of fibonacciFunc()){
         if(num>10000)
         break;
         console.log(num);
     }
 
+    // 배열 리스트럭처링 할당을 통해 3개의 요소만 취득
     const [f1,f2,f3] =fibonacciFunc();
     console.log(f1,f2,f3);
+
+    
