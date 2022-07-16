@@ -102,13 +102,11 @@
     let hour = today.getHours();
     let minute =today.getMinutes();
     let second=today.getSeconds();
-
     const ampm=hour>=12? 'PM':'AM';
 
     //12시간제로 변경
     hour%=12;
     hour=hour||12;
-
     //10 미만인 분과 초를 2자리로 변경
     minute=minute<10?'0'+minute:minute;
     second=second<10?'10'+second:second;
@@ -116,6 +114,9 @@
     const now =`${year}년 ${month}월 ${date}일 ${day} ${hour}:${minute}:${second} ${ampm}`;
 
     console.log(now);
-
     setTimeout(printNow,1000);
 }());
+
+//2022년 7월 8일 (목요일) 11:29:42 PM
+//2022년 7월 8일 (목요일) 11:29:43 PM
+//2022년 7월 8일 (목요일) 11:29:44 PM
