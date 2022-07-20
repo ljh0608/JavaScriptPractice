@@ -452,31 +452,31 @@ const { indexOf, set } = require("lodash");
 
 //filter
 
-// const numbers=[1,2,3,4,5];
-// const odds=numbers.filter(item=>item%2);
+const numbers=[1,2,3,4,5];
+const odds=numbers.filter(item=>item%2);
 
-// console.log(odds); //[ 1, 3, 5 ]
+console.log(odds); //[ 1, 3, 5 ]
 
 
 
-// class Users{
-//     constructor(){
-//         this.users=[
-//             {id:1, name:'lee'},
-//             {id:2, name:'kim'}
-//         ];
-//     }
+class Users{
+    constructor(){
+        this.users=[
+            {id:1, name:'lee'},
+            {id:2, name:'kim'}
+        ];
+    }
 
-//     findById(id){
-//         //id가 일치하는 사용자만 반환한다.
-//         return this.users.filter(user=>user.id===id);
-//     }
+    findById(id){
+        //id가 일치하는 사용자만 반환한다.
+        return this.users.filter(user=>user.id===id);
+    }
 
-//     removeId(id){
-//         //id가 일치하지 않는 사용자를 제거한다.
-//         this.users=this.users.filter(user=>user.id!==id);
-//     }
-// }
+    removeId(id){
+        //id가 일치하지 않는 사용자를 제거한다.
+        this.users=this.users.filter(user=>user.id!==id);
+    }
+}
 
 // const users=new Users();
 
@@ -586,7 +586,10 @@ const { indexOf, set } = require("lodash");
 
 const arr=['hello','world'];
 
- console.log(arr.map(x=>x.split(''))); //[ [ 'h', 'e', 'l', 'l', 'o' ], [ 'w', 'o', 'r', 'l', 'd' ] ]
+console.log(arr.map(x=>x.split(''))); //[ [ 'h', 'e', 'l', 'l', 'o' ], [ 'w', 'o', 'r', 'l', 'd' ] ]
 console.log(arr.map(x=>x.split('')).flat()); //['h', 'e', 'l', 'l','o', 'w', 'o', 'r','l', 'd']
 
-console.log(arr.flatMap(x=>x.split('')));
+console.log(arr.flatMap(x=>x.split('')));//['h', 'e', 'l', 'l','o', 'w', 'o', 'r','l', 'd']
+
+
+
