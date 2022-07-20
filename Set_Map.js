@@ -141,19 +141,124 @@ const { set } = require("lodash");
 
 
 //상위집합 부분집합
+// Set.prototype.inSuperset=function(subset){
+//     const superSet=[...this];
+
+//     return [...subset].every(v=>superSet.includes(v));
+// };
+
+// const setA=new Set([1,2,3,4]);
+// const setB=new Set([2,4]);
+
+// console.log(setA.inSuperset(setB)); //true
+// console.log(setB.inSuperset(setA)); //flase
 
 
-Set.prototype.inSuperset=function(subset){
-    const superSet=[...this];
+//map
+// const map =new Map();
+// console.log(map); //Map(0) {}
 
-    return [...subset].every(v=>superSet.includes(v));
-};
 
-const setA=new Set([1,2,3,4]);
-const setB=new Set([2,4]);
+// const {size}=new Map([['key1', 'value1'], ['key2','value2']]);
+// console.log(size); //2
 
-console.log(setA.inSuperset(setB)); //true
-console.log(setB.inSuperset(setA)); //flase
+
+// const map =new Map();
+// console.log(map); //Map(0) {}
+
+// map.set('key1','value1');
+// console.log(map); //Map(1) { 'key1' => 'value1' }
+
+// const map=new Map();
+// map.set('key1','value1')
+// .set('key1','value2');
+
+// console.log(map);//Map(1) { 'key1' => 'value2' }
+
+// const map =new Map();
+
+// const lee={name: 'Lee'};
+// const kim={name: 'Kim'};
+
+// map.set(lee,'developer')
+// .set(kim,'designer');
+
+// console.log(map.has(lee)); //true
+// console.log(map.has('key')); //false
+
+
+// const map =new Map([['key1', 'value1'], ['key2','value2']]);
+// console.log(map); //Map(2) { 'key1' => 'value1', 'key2' => 'value2' }
+
+// map.clear();
+// console.log(map); //Map(0) {}
+
+
+// const lee={name:'lee'};
+// const kim={name:'kim'};
+
+// const map=new Map([[lee,'developer'],[kim,'designer']]);
+// map.forEach((v,k,map)=>console.log(v,k,map));
+
+// // developer { name: 'lee' } Map(2) {
+// //     { name: 'lee' } => 'developer',
+// //     { name: 'kim' } => 'designer'
+// //   }
+// //   designer { name: 'kim' } Map(2) {
+// //     { name: 'lee' } => 'developer',
+// //     { name: 'kim' } => 'designer'
+// //   }
+
+
+
+// const lee={name:'lee'};
+// const kim={name:'kim'};
+
+// const map=new Map([[lee,'developer'],[kim,'designer']]);
+
+// //Map 객체는 이터러블이다.
+// console.log(Symbol.iterator in map); //true
+
+// // for of 문으로 순회 가능
+// for(const entry of map){
+//          console.log(entry);
+// //     [ { name: 'lee' }, 'developer' ]
+// // [ { name: 'kim' }, 'designer' ]
+// }
+
+// //Map은 스프레드 문법 대상이 될 수 있다.
+// console.log([...map]); //[ [ { name: 'lee' }, 'developer' ], [ { name: 'kim' }, 'designer' ] ]
+
+// //Map은 배열 디스트럭처링 할당의 대상이 될 수 있다.
+// const [a,b]=map;
+// console.log(a,b); //[ { name: 'lee' }, 'developer' ] [ { name: 'kim' }, 'designer' ]
+
+
+const lee={name:'lee'};
+const kim={name:'kim'};
+
+const map=new Map([[lee,'developer'],[kim,'designer']]);
+
+//Map.prototype.keys는 Map 객체에서 요소키를 값으로 갖는 이터레이터 반환
+for(const key of map.keys()){
+    console.log(key);
+}
+
+for(const value of map.values()){
+    console.log(value);
+}
+
+for(const entry of map.entries()){
+    console.log(entry);
+}
+
+
+
+
+
+
+
+
 
 
 
