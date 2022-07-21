@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+       <li class="fruit apple">Apple</li>
+       <li class="banana">Banana</li>
+       <li class="banana">Orange</li>
+    </ul>
+
+    <div class="banana">Bananana</div>
+    <script>
+        const $bananasFromDocument=document.getElementsByClassName('banana');
+        console.log($bananasFromDocument);
+//         HTMLCollection(3)
+// 0: li.banana
+// 1: li.banana
+// 2: div.banana
+        const $fruits=document.getElementById('fruits');
+        const $bananasFromFruits=$fruits.getElementsByClassName('banana');
+
+        console.log($bananasFromFruits);
+//         HTMLCollection(2)
+//          0: li.banana
+//          1: li.banana
+    </script>
+</body>
+</html>
