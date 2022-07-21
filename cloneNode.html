@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li>Apple</li>
+    </ul>
+</body>
+<script>
+    const $fruits=document.getElementById('fruits');
+    const $apple= $fruits.firstElementChild;
+
+    //$apple 요소를 얕은 복사하여 사본을 생성 (텍스트노드도 없음)
+    const $shallowClone=$apple.cloneNode();
+    //사본 요소에 텍스트 추가
+    $shallowClone.textContent='Banana';
+    //fruits 요소 노드의 마지막 노드로 추가
+    $fruits.appendChild($shallowClone);
+
+    // 깊은복사
+    const $deepClone=$fruits.cloneNode(true);
+    $fruits.appendChild($deepClone);
+</script>
+</html>
+
+
