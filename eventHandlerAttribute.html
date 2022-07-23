@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sayHi('Lee')">Click me!</button>
+
+</body>
+
+<script>
+    function sayHi(name){
+        console.log(`Hi ${name}`); // Hi Lee
+    }
+</script>
+</html>
+
+
+<!-- Angular -->
+<button (click)="handlClick($event)">Save</button>
+
+<!-- React -->
+<button onclick="{handlClick}">Save</button>
+
+<!-- Svelte -->
+<button on:click="{handlClick}">Save</button>
+
+<!-- Vue -->
+<button v-on:click="handlClick($event)">Save</button>
+
+
