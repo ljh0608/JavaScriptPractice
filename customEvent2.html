@@ -16,8 +16,8 @@
         //커스텀 이벤트를 디스패치하기 전에 이벤트 핸들러 등록해야함
 
         $button.addEventListener('click', e=>{
-            console.log(e);
-            alert(`${e} Clicked!`);
+            console.log(e); //pointerEvent
+            alert(`${e} Clicked!`); //[object PointerEvent] Clicked!
         });
 
         //커스텀 이벤트 생성
@@ -29,3 +29,4 @@
 
 </body>
 </html>
+
