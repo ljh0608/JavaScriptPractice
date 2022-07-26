@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">User name <input type="text"></label>
+    <em class="message"></em>
+
+    <script>
+        const MIN_USER_NAME_LENGTH=5;
+        const $input=document.querySelector('input[type=text]');
+        const $msg=document.querySelector('.message');
+
+        const checkUserName=min =>e=>{
+            $msg.textContent=$input.value.length<min ? `이름은 ${min}자 이상 입력해주세요`: '';
+        };
+
+        //이벤트 핸들러를 반환하는 함수를 호출하면서 인수 전달
+        $input.onblur=checkUserName(MIN_USER_NAME_LENGTH);
+
+        // //이벤트 핸들러 내부에서 함수 호출하면서 인수 전달
+        // $input.onblur=()=>{
+        //     checkUserName(MIN_USER_NAME_LENGTH);
+        // }
+    </script>
+</body>
+</html>
+
