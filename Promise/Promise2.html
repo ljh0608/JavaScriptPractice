@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const get=(url,successCallback, failureCallback)=>{
+            const xhr=new XMLHttpRequest();
+            xhr.open('GET',url);
+            xhr.send();
+
+            xhr.onload=()=>{
+                if(xhr.status===200){
+                    //성공했을 때 서버의 응답을 콜백 함수 인수로 전달 호출
+                    successCallback(JSON.parse(xhr.response));
+                }else{
+                    //실패했을 때 에러 정보를 콜백함수 인수로 전달 호출
+                    failureCallback(xhr.status);
+                }
+            };
+        };
+
+        get('https://jsonplaceholder.typicode/com/posts/1',console.log, console.error);
+    </script>
+</body>
+</html>
