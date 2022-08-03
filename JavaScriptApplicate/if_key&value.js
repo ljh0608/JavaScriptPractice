@@ -4,7 +4,7 @@ const meal={
     중식 :"멘보샤",
     인도식:"카레"
 };
-
+ //test
 // const getMeal=(mealType)=>{
 //     if(mealType==="한식") return "불고기"
 //     if(mealType==="중식") return "멘보샤"
