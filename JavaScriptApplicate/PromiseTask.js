@@ -32,7 +32,6 @@ const promiseTask=taskA(5,1).then((a_res)=>{
 console.log("aaaa");
 console.log("aaaa");
 console.log("aaaa");
-console.log("aaaa");
 
 
 promiseTask.then((b_res)=>{
