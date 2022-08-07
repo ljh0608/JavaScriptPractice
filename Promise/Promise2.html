@@ -26,22 +26,25 @@
         });
         };
 
-        promiseGet('https://jsonplaceholder.typicode.com/posts/1')
-        .then(res=>console.xxx(res,'hi'))
-        .catch(err=>console.log(err)) //TypeError: console.xxx is not a function
-        .finally(()=>console.log('Bye!'));
+        const url='https://jsonplaceholder.typicode.com';
+        promiseGet(`${url}/posts/1`)
+        .then(({userId})=>promiseGet(`${url}/users/${userId}`))
+        .then(userInfo=> console.log(userInfo))
+        .catch(err => console.error(err));
 
 
-        console.log("////");
-    const url='https://jsonplaceholder.typicode.com';
 
-(async ()=>{
-    const {userId}=await promiseGet(`${url}/posts/1`);
 
-    const userInfo=await promiseGet(`${url}/users/${userId}`);
+//         console.log("////");
+//     const url='https://jsonplaceholder.typicode.com';
 
-    console.log(userInfo);
-})();
+// (async ()=>{
+//     const {userId}=await promiseGet(`${url}/posts/1`);
+
+//     const userInfo=await promiseGet(`${url}/users/${userId}`);
+
+//     console.log(userInfo);
+// })();
     </script>
 </body>
 </html>
