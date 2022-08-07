@@ -39,14 +39,16 @@ const { ɵpatchComponentDefWithScope } = require("@angular/core");
 // get('https://jsonplaceholder.typicode.com/posts/1',console.log, console.error);
 //  //{userId: 1, id: 1, title: "sunt aut ...}
 
-// try{
-//     setTimeout(()=>{
-//         throw new Error('Error!');
-//     },1000);
-// }catch(e){
-//     //에러를 캐치하지 못한다.
-//     console.log('캐치한 에러',e);
-// }
+try{
+    setTimeout(()=>{
+        throw new Error('Error!');
+    },1000);
+}catch(e){
+    //에러를 캐치하지 못한다.
+    console.log('캐치한 에러',e);
+}
+
+
 
 
 

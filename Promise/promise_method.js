@@ -1,3 +1,6 @@
+
+
+
 //promise resolve
 
 //배열을 resolve하는 프로미스 생성
@@ -55,5 +58,6 @@ Promise.all([
     1, //Promise.resolve(1)
     2, //Promise.resolve(2)
     3 //Promise.resolve(3)
-]).then(console.log)
+]).then(console.log) //[ 1, 2, 3 ]
 .catch(console.error);
+
