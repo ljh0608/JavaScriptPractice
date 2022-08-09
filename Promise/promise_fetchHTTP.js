@@ -20,7 +20,7 @@ const request={
         return fetch(url,{method:'DELETE'});
     }
 };
-//hgfg
+//!
 request.get('https://jsonplaceholder.typicode.com/todos/1')
     .then(response=>{
         if(!response.ok) throw new Error(response.statusText);
