@@ -169,15 +169,128 @@
 // })());
 
 
- const fetch = require('node-fetch');
- import co from 'co';
 
-// const co= require('co');
+//co 불러오지 못함!!
+//  const fetch = require('node-fetch');
 
-co(function* fetchTodo() {
-    const url='https://jsonplaceholder.typicode.com/todos/1';
 
-    const response=yield fetch(url);
-    const todo=yield response.json();
-    console.log(todo);
-});
+//  const co= require('co');
+
+// co(function* fetchTodo() {
+//     const url='https://jsonplaceholder.typicode.com/todos/1';
+
+//     const response=yield fetch(url);
+//     const todo=yield response.json();
+//     console.log(todo);
+// });
+
+
+// const fetch =require('node-fetch');
+
+// async function fetchTodo(){
+//     const url = 'https://jsonplaceholder.typicode.com/todos/1';
+
+//     const response= await fetch(url);
+//     const todo = await response.json();
+//     console.log(todo); //{ userId: 1, id: 1, title: 'delectus aut autem', completed: false }
+
+// }
+
+// fetchTodo();
+
+
+// // async 함수 선언문
+// async function foo(n) {return n;}
+// foo(1).then(v=> console.log(v)); //1
+
+// // async 함수 표현식
+// const bar = async function(n) {return n;}
+// bar(2).then(v=>console.log(v)); //2
+
+// // async 화살표 함수
+// const baz =async n=>n;
+// baz(3).then(v=>console.log(v));// 3
+
+// //async 메서드
+// const obj={
+//     async foo(n){return n;}
+// };
+// obj.foo(4).then(v=>console.log(v));//4
+
+// // async class 메서드
+// class Myclass {
+//     async bar(n) {return n;}
+// }
+// const myClass=new Myclass();
+// myClass.bar(5).then(v=>console.log(v));//5
+
+
+
+
+// async function foo(){
+//     let start = new Date();
+//     const a =await new Promise(resolve => setTimeout(()=>resolve(1),3000));
+//     const b =await new Promise(resolve => setTimeout(()=>resolve(2),2000));
+//     const c =await new Promise(resolve => setTimeout(()=>resolve(3),1000));
+
+//     console.log([a,b,c]); //[1,2,3]
+
+//    let end=new Date();
+//    console.log((end-start)/1000); //6.036
+// }
+
+// foo();
+
+
+// async function foo(){
+//     let start = new Date();
+//     const res = await Promise.all([
+//         new Promise(resolve => setTimeout(()=>resolve(1),3000)),
+//         new Promise(resolve => setTimeout(()=>resolve(2),2000)),
+//         new Promise(resolve => setTimeout(()=>resolve(3),1000))
+
+//     ]);
+//     console.log(res); //[1,2,3]
+
+//    let end=new Date();
+//    console.log((end-start)/1000); //3.008
+// };
+
+// foo();
+
+
+// async function bar(n){
+//     const a =await new Promise(resolve=> setTimeout(()=> resolve(n),3000));
+//     // 두 번째 비동기 처리를 수행하려면 첫 번째 비동기 처리결과가 필요하다.
+//     const b =await new Promise(resolve=> setTimeout(()=> resolve(a+2),1000));
+//     // 세 번째 비동기 처리를 수행하려면 두 번째 비동기 처리결과가 필요하다.
+//     const c =await new Promise(resolve=> setTimeout(()=> resolve(b+2),2000));
+//     console.log([a,b,c]);
+// }
+
+// bar(2);
+
+
+// try{
+//     setTimeout(()=> {throw new Error('Error!');},1000);
+// }catch(e){
+//     console.error('캐치한 에러', e);
+// } //에러 캐치 못함'
+
+
+
+const fetch=require('node-fetch');
+
+const foo=async()=>{
+
+    const wrongUrl='https://wrong.url';
+    const response=await fetch(wrongUrl);
+    const data = await response.json();
+     return data;
+
+}
+
+foo()
+.then(console.log)
+.catch(console.error);
+
