@@ -74,20 +74,22 @@
 //     console.error(err); //good! good!
 // }
 
-const foo= ()=>{
-    throw Error('foo에서 발생한 에러');
-};
+// const foo= ()=>{
+//     throw Error('foo에서 발생한 에러'); //4
+// };
 
-const bar = ()=>{
-    foo();
-};
+// const bar = ()=>{
+//     foo(); //3
+// };
 
-const baz = ()=>{
-    bar();
-};
+// const baz = ()=>{
+//     bar(); //2
+// };
 
-try {
-    baz();
-}catch(err){
-    console.error(err);
-}
+// try {
+//     baz(); //1
+// }catch(err){
+//     console.error(err);
+// }
+
+
