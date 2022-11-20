@@ -292,5 +292,5 @@ const foo=async()=>{
 
 foo()
 .then(console.log)
-.catch(console.error);
+.catch(console.error); //FetchError: request to https://wrong.url/ failed, reason: getaddrinfo ENOTFOUND wrong.url
 
