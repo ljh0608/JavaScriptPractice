@@ -1,3 +1,19 @@
+
+// // 화살표 함수와 지수함수
+// [1,2,3].map(n=>n**n);
+
+
+// // -------------- ES5 사양 소스코드 --------------
+// "use strict"
+
+// [1,2,3].map(function(n){
+//     return Math.pos(n,n);
+// })
+
+
+
+
+
 export const pi=Math.PI;
 
 export function power(x,y){
