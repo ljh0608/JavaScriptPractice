@@ -7,6 +7,10 @@ function foo(){
 function bar(){
     console.log('bar');
 }
+function a()
+{
+
+}
 
 setTimeout(foo, 0);
 bar();
