@@ -1,4 +1,5 @@
-
+//src/js/main.js
+import "@babel/polyfill";
 import {pi,power, Foo} from "./lib";
 
 console.log(pi);
@@ -18,3 +19,6 @@ console.log(Object.assign({},{x:1},{y:2}));
 
 //polyfill이 필요한 코드
 console.log(Array.from([1,2,3],v=>v+v));
+
+
+
